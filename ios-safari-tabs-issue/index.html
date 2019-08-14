@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>iOS Safari Tabs issue</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      background-color: salmon;
+      height: 200vh;
+      width: 100vw;
+    }
+
+    .text {
+      color: white;
+      font-size: 2em;
+      font-weight: bold;
+      padding: 1em;
+      position: fixed;
+      right: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    on iOS, safari render some tabs at the bottom and hide it on scroll down, the browser will trigger a resize event every time it shows or hide the tabs
+  </div>
+  <div class="text"></div>
+
+  <script>
+    const div = document.querySelector('.text')
+
+    div.textContent = window.innerHeight
+
+    window.addEventListener('resize', () => {
+      div.textContent = window.innerHeight
+    })
+  </script>
+</body>
+</html>
